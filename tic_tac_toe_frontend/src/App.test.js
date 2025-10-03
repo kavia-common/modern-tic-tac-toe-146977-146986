@@ -1,8 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders title and scoreboard', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(screen.getByText(/Tic Tac Toe/i)).toBeInTheDocument();
+  expect(screen.getByLabelText(/Scoreboard/i)).toBeInTheDocument();
+  expect(screen.getByRole('group', { name: /Controls/i })).toBeInTheDocument();
+  expect(screen.getByRole('grid', { name: /Tic Tac Toe board/i })).toBeInTheDocument();
 });
